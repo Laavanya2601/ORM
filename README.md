@@ -5,7 +5,7 @@
 To develop a Django application to store and retrieve data from Car Inventory Database using Object Relational Mapping(ORM).
 
 ## ENTITY RELATIONSHIP DIAGRAM
-
+![alt text](image.png)
 
 
 ## DESIGN STEPS
@@ -23,13 +23,41 @@ Enter the code for admin.py and models.py
 Execute Django admin and create details for 10 books
 
 ## PROGRAM
+```
+model.py
+from django.db import models
+
+
+
+class car(models.Model):
+
+    car_id = models.AutoField(primary_key=True)
+
+    brand = models.CharField(max_length=20)
+
+    model = models.CharField(max_length=20)
+
+    year = models.DateField()
+
+    price = models.IntegerField()
+
+admin.py
+from django.contrib import admin
+from . models import car
+
+
+# Register your models here.
+admin.site.register(car)
+
+class CarAdmin(admin.ModelAdmin):
+    list_display=('car_id','brand','model','year','price')
+
 
 
 
 ## OUTPUT
 
-Include the screenshot of your admin page.
-
+![alt text](<Screenshot 2025-09-17 233538.png>)
 
 ## RESULT
 Thus the program for creating a database using ORM hass been executed successfully
